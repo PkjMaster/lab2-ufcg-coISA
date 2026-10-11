@@ -43,9 +43,9 @@ public class RegistroResumos {
     }
 
     /**
-     * Adiciona um resumo novo ao array resumos a partir do tema e conteudo.
+     * Retorna as representações textuais dos resumos armazenados.
      *
-     * @return Uma array de String contendo todos as representações em String dos resumos adicionados.
+     * @return Uma array de String contendo todas as representações em String dos resumos adicionados.
      */
     public String[] pegaResumos() {
         int len = this.conta();
@@ -59,9 +59,9 @@ public class RegistroResumos {
     }
 
     /**
-     * Retorna uma String contendo o tema de todos os resumos cadastrados.
+     * Retorna uma String contendo a quantidade de resumos e o tema de todos os resumos cadastrados.
      *
-     * @return Uma String contendo todos os temas dos resumos cadastrados.
+     * @return Uma String contendo quantidade e os temas dos resumos.
      */
     public String imprimeResumos() {
         int len = this.conta();
@@ -82,17 +82,17 @@ public class RegistroResumos {
     /**
      * Retorna a quantidade de resumos total.
      *
-     * @return A quantidade de resumos total.
+     * @return A quantidade de resumos armazenados.
      */
     public int conta() {
         return Math.min(this.iResumos, this.resumos.length);
     }
 
     /**
-     * Verifica se já existe um resumo com o tema passado no parâmetro.
+     * Verifica se já existe um resumo com o tema informado.
      *
      * @param tema tema que é verificado.
-     * @return Retorna um boolean simbolizando a existência ou não de um resumo igual.
+     * @return Retorna true se existir outro resumo, false se não existir.
      */
     public boolean temResumo(String tema) {
         int len = conta();
@@ -129,10 +129,7 @@ public class RegistroResumos {
             }
         }
 
-        String[] out = new String[idx];
-        for(int i = 0; i < idx; i++){
-            out[i] = tempTemas[i];
-        }
+        String[] out = Arrays.copyOf(tempTemas, idx);
         Arrays.sort(out);
 
         return out;

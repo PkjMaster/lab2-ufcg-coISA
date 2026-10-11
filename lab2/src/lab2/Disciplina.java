@@ -13,7 +13,7 @@ public class Disciplina {
     private String nome;
 
     /**
-     * Quantidade de horas de estudo.
+     * Quantidade total de horas de estudo nessa disciplina.
      */
     private int horasDeEstudo;
 
@@ -23,7 +23,7 @@ public class Disciplina {
     private double[] notas;
 
     /**
-     * Quantidade total de notas na disciplina.
+     * Quantidade máxima de notas na disciplina.
      */
     private final int MAX_NOTAS;
 
@@ -33,7 +33,7 @@ public class Disciplina {
     private int[] pesos;
 
     /**
-     * A soma dos pesos para a média.
+     * A soma dos pesos para calcular a média.
      */
     private int pesoTotal;
 
@@ -75,13 +75,14 @@ public class Disciplina {
         // inicializa o array com pesos 1
         for (int i = 0; i < MAX_NOTAS; i++) {
             this.pesos[i] = 1;
+            this.notas[i] = 0;
         }
     }
 
 
     /**
      * Constrói a disciplina a partir do nome da disciplina e o número de notas.
-     * Inicializando horas de estudo.
+     * Inicializando horas de estudo = 0.
      *
      * @param nomeDisciplina nome da disciplina.
      * @param numNotas       o número máximo de notas que serão recebidas.
@@ -97,6 +98,7 @@ public class Disciplina {
         for (int i = 0; i < pesos.length; i++) {
             this.pesoTotal += pesos[i];
             this.pesos[i] = pesos[i];
+            this.notas[i] = 0;
         }
     }
 
@@ -137,7 +139,7 @@ public class Disciplina {
     /**
      * Verifica se o aluno está aprovado na disciplina.
      *
-     * @return Um boolean dizendo se está ou não aprovado.
+     * @return Retorna true se a media for >= 7, false caso contrário.
      */
     public boolean aprovado() {
         return calcMedia() >= 7.0;

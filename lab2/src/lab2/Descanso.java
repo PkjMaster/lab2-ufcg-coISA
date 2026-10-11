@@ -28,7 +28,7 @@ public class Descanso {
      */
     public Descanso() {
         this.horasDescanso = 0;
-        this.numerosDeSemana = 0;
+        this.numerosDeSemana = 1;
     }
 
     /**
@@ -52,10 +52,10 @@ public class Descanso {
     /**
      * Retorna descansado ou cansado com base no nas horas descansadas relativas ao esperado por semana.
      *
-     * @return Retorna "descansado" ou "cansado" com base nas horas descansadas relativas ao esperado por semana.
+     * @return Retorna "descansado" se a meta de desencaso for atingida, retorna "cansado" caso contrário.
      */
     public String getStatusGeral() {
-        if (this.horasDescanso > 0 && this.horasDescanso >= MIN_DESCANSO * this.numerosDeSemana) {
+        if (this.horasDescanso >= MIN_DESCANSO * this.numerosDeSemana) {
             return "descansado";
         }
         return "cansado";

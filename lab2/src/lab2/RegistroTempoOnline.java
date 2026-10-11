@@ -59,7 +59,7 @@ public class RegistroTempoOnline {
     /**
      * Retorna se foi ou não atingida a meta.
      *
-     * @return um boolean representando se a meta foi ou não atingida.
+     * @return Retorna true se a meta for atingida, false se não atingir.
      */
     public boolean atingiuMetaTempoOnline() {
         return (this.tempoInvestido >= this.tempoEsperado);
