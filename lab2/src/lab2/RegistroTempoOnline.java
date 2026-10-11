@@ -36,7 +36,7 @@ public class RegistroTempoOnline {
 
     /**
      * Constrói um registro a partir do nome da disciplina e tempo online esperado.
-     * Inicia com tempo esperado de 120 e tempo investido 0.
+     * Inicia com 0 de tempo investido.
      *
      * @param nomeDisciplina      o nome da disciplina.
      * @param tempoOnlineEsperado o tempo online esperado.
